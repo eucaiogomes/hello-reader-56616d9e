@@ -12,6 +12,7 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/treinamento/:id" element={<TrainingPage />} />
+        <Route path="/trilha" element={<TrilhaPage />} />
         <Route path="/trilha/:id" element={<TrilhaPage />} />
       </Routes>
     </BrowserRouter>
