@@ -2930,20 +2930,10 @@ export default function App() {
               <Hero />
               <div className="bg-[#F7F9FC] py-12 border-t border-slate-200/70">
                 <div className="max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16">
-                  <div className="flex flex-col lg:flex-row gap-8">
-                    {/* Left Column: Content Sections */}
-                    <div className="flex-1 overflow-hidden">
-                      {SECTIONS.filter((section) => section.variant === 'avancado-1').map((section) => (
-                        <ContentSection key={section.id} section={section} />
-                      ))}
-                    </div>
-                    
-                    {/* Right Column: Social Sidebar */}
-                    {showSocialSidebar && (
-                      <div className="w-full lg:w-80 xl:w-[400px] flex-shrink-0">
-                        <SocialSidebar onSeeAll={() => setActiveTab('Social')} />
-                      </div>
-                    )}
+                  <div className="flex-1 overflow-hidden">
+                    {SECTIONS.filter((section) => section.variant === 'avancado-1').map((section) => (
+                      <ContentSection key={section.id} section={section} />
+                    ))}
                   </div>
                 </div>
               </div>
