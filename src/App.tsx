@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@tanstack/react-router';
 import { 
   Search, 
   Bell, 
@@ -2022,8 +2022,12 @@ const ContentCard: React.FC<{ item: ContentItem, variant?: string }> = ({ item, 
 
   const navigate = useNavigate();
   const handleOpen = () => {
-    const path = item.type === 'TRAIL' ? `/trilha/${item.id}` : `/treinamento/${item.id}`;
-    navigate(path);
+    if (item.type === 'TRAIL') {
+      navigate({ to: '/trilha/$id', params: { id: item.id } });
+      return;
+    }
+
+    navigate({ to: '/treinamento/$id', params: { id: item.id } });
   };
 
   // --- Avançado 7 (Poster) Edge Case ---
