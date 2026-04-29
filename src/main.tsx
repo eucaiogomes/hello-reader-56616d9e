@@ -1,20 +1,18 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from './App.tsx';
-import TrainingPage from './pages/TrainingPage.tsx';
-import TrilhaPage from './pages/TrilhaPage.tsx';
-import './index.css';
+import { RouterProvider } from '@tanstack/react-router';
+import { getRouter } from './router';
 
-createRoot(document.getElementById('root')!).render(
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  throw new Error('Root element not found');
+}
+
+const router = getRouter();
+
+createRoot(rootElement).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/treinamento/:id" element={<TrainingPage />} />
-        <Route path="/trilha" element={<TrilhaPage />} />
-        <Route path="/trilha/:id" element={<TrilhaPage />} />
-      </Routes>
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </StrictMode>,
 );

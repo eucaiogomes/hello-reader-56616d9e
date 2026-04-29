@@ -20,7 +20,7 @@ import {
   LogOut
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@tanstack/react-router';
 import { SidebarContentIndicator, ContentTypeLabel } from './SidebarContentIndicator';
 import { PerformanceDashboard } from './PerformanceDashboard';
 import { MaterialExplorer } from './MaterialExplorer';
@@ -89,7 +89,7 @@ const MiniCircularProgress = ({ percentage, label, color = "var(--brand-color)" 
 
 export default function TrainingView() {
   const navigate = useNavigate();
-  const goHome = () => navigate('/');
+  const goHome = () => navigate({ to: '/' });
   const [activeLessonId, setActiveLessonId] = useState<number | null>(2);
   const [activeTab, setActiveTab] = useState('descricao');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
